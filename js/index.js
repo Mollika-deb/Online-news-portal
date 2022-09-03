@@ -60,7 +60,7 @@ const displayCategories = (categories) =>{
          const categoryDiv = document.createElement('div');
       categoryDiv.classList.add('div');
       categoryDiv.innerHTML = `
-          <div class="row g-0">
+          <div class="row g-0 ">
          <div class="col-md-4">
               <img src="${details.image_url}" class="img-fluid rounded-start" alt="...">
          </div>
@@ -69,8 +69,16 @@ const displayCategories = (categories) =>{
               <h5 class="card-title">${details.title}</h5>      
                          <p class="card-text">${details.details}</p>
                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                 <div>
+                    <img src="${details.author.img}" " rounded-start" alt="...">
+                    <div>
+                    <h4>${details.author.name}</h4>
+                    <p>${details.author.published_date}</p>
+                    </div>
+                 </div>
             </div>
          </div>
+
     </div>
     `
      detailContainer.appendChild(categoryDiv)
