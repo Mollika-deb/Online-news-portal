@@ -1,0 +1,14 @@
+/* .style{
+    
+}  */
+.image{
+    height:40px;
+    width: 40px;
+}
+.card-text{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.fa-eye{
+    height:100px;
+}

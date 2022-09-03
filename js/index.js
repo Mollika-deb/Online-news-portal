@@ -36,6 +36,7 @@ const displayCategories = (categories) =>{
       const detailContainer = document.getElementById('detail-container');
       detailContainer.innerHTML = '';
      category.forEach(details => {
+        //console.log(category);
          const categoryDiv = document.createElement('div');
       categoryDiv.classList.add('div');
       categoryDiv.innerHTML = `
@@ -43,25 +44,31 @@ const displayCategories = (categories) =>{
          <div class="col-md-4">
               <img src="${details.image_url}" class="img-fluid rounded-start" alt="...">
          </div>
-         <div class="col-md-8">
+         <div class="col-md-8 ps-5">
               <div class="card-body">
-              <h5 class="card-title">${details.title}</h5>      
-                         <p class="card-text">${details.details}</p>
-                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                 <div>
+              <h5 class="card-title fw-bold">${details.title}</h5>      
+                         <p class="card-text pt-3">${details.details.slice(0,300)}....</p>
+                
+                 <div class="d-flex justify-content-between ">
+                   <div class="d-flex ">
                     <div>
-                    <img src="${details.author.img}" " rounded-start" alt="...">
+                    <img class="image rounded-circle" src="${details.author.img}" " rounded-start" alt="...">
                     </div>
-                    <div>
-                    <h4>${details.author.name}</h4>
+                    <div class="ms-3 text-center">
+                    <h5>${details.author.name}</h5>
                     <p>${details.author.published_date}</p>
                     </div>
-                    <div>
+                   </div>
+                    <div class="d-flex ">
+                    <div >
                     <i class="fa-regular fa-eye"></i>
-                    <h3>${details.total_view}</h3>
                     </div>
                     <div>
-                    <i class="fa-sharp fa-solid fa-arrow-right"></i>
+                    <h4 class="ms-3 text-center">${details.total_view}K</h4>
+                    </div>
+                    </div>
+                    <div>
+                    <i class="fa-sharp fa-solid fa-arrow-right" onclick="loadNewsDetails()" ></i>
                     </div>
 
                  </div>
@@ -73,6 +80,12 @@ const displayCategories = (categories) =>{
      detailContainer.appendChild(categoryDiv)
      })
   };
+
+  const loadNewsDetails = () =>{
+
+  }
+
+
  
 
 loadCategories('');
