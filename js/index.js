@@ -14,7 +14,7 @@ const displayCategories = (categories) =>{
          categoriesDiv.innerHTML=`
 
              <a onclick = "loadCategoryDetail(${category.category_id})" class="nav-link" href="#" >${category.category_name}</a>
-        `;
+        `
           categoriesContainer.appendChild(categoriesDiv);
     });
 
@@ -34,12 +34,25 @@ const displayCategories = (categories) =>{
 
   const displayCategoriesDetails = (category) =>{
       const detailContainer = document.getElementById('detail-container');
+      const categoryLength = category.length;
+      const noData = document.getElementById('no-data');{
+        if(categoryLength === 0){
+            noData.classList.remove('d-none');
+        }
+      }
+    //   if(categoryLength===0){
+    //     const length = "There is no data";
+    //   }
+    //   else{
+    //     const length = categoryLength;
+    //   }
       detailContainer.innerHTML = '';
      category.forEach(details => {
         //console.log(category);
          const categoryDiv = document.createElement('div');
       categoryDiv.classList.add('div');
       categoryDiv.innerHTML = `
+            <p>${categoryLength} news is found</p>
           <div class="row g-0 ">
          <div class="col-md-4">
               <img src="${details.image_url}" class="img-fluid rounded-start" alt="...">
@@ -68,7 +81,8 @@ const displayCategories = (categories) =>{
                     </div>
                     </div>
                     <div>
-                    <i class="fa-sharp fa-solid fa-arrow-right" onclick="loadNewsDetails()" ></i>
+                    <i class="fa-sharp fa-solid fa-arrow-right"></i>
+
                     </div>
 
                  </div>
@@ -81,7 +95,11 @@ const displayCategories = (categories) =>{
      })
   };
 
-  const loadNewsDetails = () =>{
+  const loadNewsDetails = (_id) =>{
+    //   const url = `https://openapi.programming-hero.com/api/news/${_id}`
+    //   .then(res => res.json())
+    //   .then(data => console.log(data))
+    console.log(_id);
 
   }
 
