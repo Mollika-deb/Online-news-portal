@@ -43,21 +43,7 @@ const displayCategories = (categories) =>{
             noData.classList.remove('d-none');
         }
       }
-    //  const count = document.getElementById('count-details');
-
-    //  const countDiv = document.createElement('p');
-    //  countDiv.classList.add('countAns');
-    //  countDiv.innerHTML = `
-    //     <p>${category.length} news is found</p>
-    //    `
-    //  count.appendChild(countDiv);
-
-    //   if(categoryLength===0){
-    //     const length = "There is no data";
-    //  }
-    //   else{
-    //     const length = categoryLength;
-    //   }
+   
       detailContainer.innerHTML = '';
      category.forEach(details => {
         //console.log(category);
@@ -93,7 +79,7 @@ const displayCategories = (categories) =>{
                     </div>
                     </div>
                     <div>
-                    <i onclick="loadNewsDetails(${details._id})" class="fa-sharp fa-solid fa-arrow-right"  data-bs-toggle="modal" data-bs-target="#newsModal"></i>
+                    <i onclick="loadNewsDetails()" class="fa-sharp fa-solid fa-arrow-right"  ></i>
 
                     </div>
 
@@ -108,11 +94,12 @@ const displayCategories = (categories) =>{
      toggoleSpinner(false);
   };
 
-  const loadNewsDetails = (_id) =>{
-      const url = `https://openapi.programming-hero.com/api/news/${details._id}`
+  const loadNewsDetails = () =>{
+    const url = `https://openapi.programming-hero.com/api/news/f69a695f037cd9484cecaea37ca71011`
+        fetch(url)
        .then(res => res.json())
        .then(data => console.log(data))
-    console.log(_id);
+    
 
   }
 
@@ -144,13 +131,8 @@ const displayCategories = (categories) =>{
      }
    }
 
-
-
-     
-  
-
-
-
- 
+  //  const sort = details.sort(a , b) => {
+  // return b.total_view - 
+  //  }
 
 loadCategories('8');
