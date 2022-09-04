@@ -94,14 +94,7 @@ const displayCategories = (categories) =>{
      toggoleSpinner(false);
   };
 
-  const loadNewsDetails = () =>{
-    const url = `https://openapi.programming-hero.com/api/news/f69a695f037cd9484cecaea37ca71011`
-        fetch(url)
-       .then(res => res.json())
-       .then(data => console.log(data))
-    
-
-  }
+  
 
   const blog = () =>{
       const clickBlog = document.getElementById('click-blog');
